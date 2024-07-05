@@ -20,27 +20,39 @@ Basically, it allows you to speak with three different generative artificial int
 4. Close the program.
 5. Navigate to **%APPDATA%/Roaming/ShipBit/WingmanAI** (your appdata is unique to your Windows user profile, so it should look something like C:\Users\{your computer user name}\AppData\Roaming\ShipBit\WingmanAI
 6. Open the numbered folder, it will look something like 1_4_0 (as of this writing).  That refers to the version of Wingman.
-7. Download the release files from this repo: [insert].
+7. Download the release files from this repo: https://github.com/teddybear082/wingmanai-american_truck_simulator/releases/tag/wingmanai_files.
 8. Unzip those release files **directly into** the numbered folder above, e.g., 1_4_0.  It will add a American Truck Simulator folder to your configs folder and ats_telementry, api_request, and radio_chatter skills to your skills folder.
 
+![image](https://github.com/teddybear082/wingmanai-american_truck_simulator/assets/87204721/4ac17ccf-94aa-4b4c-969a-943a26761b1c)
 
-[insert]
+![image](https://github.com/teddybear082/wingmanai-american_truck_simulator/assets/87204721/4fba2b41-609e-447d-836b-ee55e2639ef6)
+
+![image](https://github.com/teddybear082/wingmanai-american_truck_simulator/assets/87204721/de84133b-21c1-4bb9-9ee8-5757afdb9812)
+
+
 
 9. Run WingmanAI (WingmanAI.exe).  Click on the **American Truck Simulator folder** that you now see at the top of the interface, and click "Load".  Click on the Dispatcher avatar picture.  Click on the **wrench** to get to settings.  Click on **"Skills"**.  Scroll down to **ats_telemetry skill** as shown in the picture below. 
 Enter the **path to your American Truck Simulator install** in the Install directory field.  **Make sure to click save** the skill setting.  Then make sure to actually **click to save again to save your profile itself**.
 
-10.	Start the game! You will now see a little pop up, if you didn't before, asking you to approve using advanced features.  Approve it.
+![image](https://github.com/teddybear082/wingmanai-american_truck_simulator/assets/87204721/6156e3f8-fad3-4fd1-ac38-4ba2fa911104)
 
-11.	Once you get to the main menu, talk to your Dispatcher wingman (default: "/" key) and say "Start dispatch mode" or similar words if you want to use the simulated dispatcher feature.  The Dispatcher will confirm activation.
+![image](https://github.com/teddybear082/wingmanai-american_truck_simulator/assets/87204721/c7a61db2-5189-44dd-85ee-37297d65fcd9)
 
-12. Try to talk to your Wingmen!
+![image](https://github.com/teddybear082/wingmanai-american_truck_simulator/assets/87204721/4d35a4f7-45d6-4f7f-949e-db64bcd5d3eb)
+
+
+11.	Start the game! You will now see a little pop up, if you didn't before, asking you to approve using advanced features.  Approve it.
+
+12.	Once you get to the main menu, talk to your Dispatcher wingman (default: "/" key) and say "Start dispatch mode" or similar words if you want to use the simulated dispatcher feature.  The Dispatcher will confirm activation.
+
+13. Try to talk to your Wingmen! Defaults are push to talk, Delete key for CBRadioSimulator, "\\" key for TruckVoiceAssistant and "/" key for Dispatcher.  You can also set one, like TruckVoiceAssistant, default using the star by its name, and use "always on" voice activation mode for that one.
 
 
 ## What if I don't Want to Pay / Don't Want WingmanPro
 
-The whole WingmanAI backend is open source!  You can find all the code here: https://github.com/ShipBit/wingman-ai.  You can even run it from source with python and bypass the entire .exe and UI.  Or, you can run the .exe but switch to free / local options for Speech to Text (whispercpp), LLM (choose "LocalLLM" for AI Conversation and AI Summarization Provider in the UI), and Text to Speech (xVaSynth already is local, or you can also use EdgeTTS).
+The whole WingmanAI backend is open source!  You can find all the code here: https://github.com/ShipBit/wingman-ai.  You can even run it from source with python and bypass the entire .exe and UI.  Or, you can run the .exe but switch to free / local options for Speech to Text (whispercpp), LLM (choose "LocalLLM" for AI Conversation and AI Summarization Provider in the UI), and Text to Speech (You can also use EdgeTTS).
 
-What you're likely to find, though, is that there really aren't good open source AI model options that can do function calling, which powers most of the really fun things about this project, like controlling game inputs and using the NMSAssistant API.  
+What you're likely to find, though, is that there really aren't good open source AI model options that can do function calling, which powers most of the really fun things about this project, like controlling game inputs and using the SCS SDK telemery data to get information about your game and truck.  
 
 However, if you find a good option for local AI that can handle function calling, WingmanAI supports that!  You can change the AI provider to "LocalLLM" in the user interface and tell WingmanAI where to find it.
 
