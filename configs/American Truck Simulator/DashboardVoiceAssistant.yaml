@@ -1,0 +1,527 @@
+commands:
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: p
+      hotkey_codes:
+      - 25
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - wipers on
+  - activate wipers
+  - wipers off
+  is_system_command: false
+  name: NextWindshieldWipersMode
+  responses:
+  - wiper mode changed
+  - wipers toggled
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: f
+      hotkey_codes:
+      - 33
+  force_instant_activation: false
+  instant_activation:
+  - toggle hazard lights
+  - turn off hazard lights
+  - turn hazard lights on
+  - flashers on
+  - flashers off
+  is_system_command: false
+  name: ToggleHazardLights
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: r
+      hotkey_codes:
+      - 19
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - radio on
+  - radio off
+  is_system_command: false
+  name: ToggleRadio
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: page up
+      hotkey_codes:
+      - 73
+      hotkey_extended: true
+  force_instant_activation: false
+  instant_activation:
+  - next radio station
+  - change radio station
+  is_system_command: false
+  name: NextRadioStation
+  responses:
+  - ok.
+  - got it.
+  - radio station changed
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: page down
+      hotkey_codes:
+      - 81
+      hotkey_extended: true
+  force_instant_activation: false
+  instant_activation:
+  - last radio station
+  - previous radio station
+  is_system_command: false
+  name: PreviousRadioStation
+  responses:
+  - ok.
+  - got it
+  - radio station changed
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: k
+      hotkey_codes:
+      - 37
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - high beams on
+  - high beams off
+  - beacons on
+  - beacons off
+  is_system_command: false
+  name: ToggleHighBeams
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: c
+      hotkey_codes:
+      - 46
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - cruise control on
+  - cruise control off
+  is_system_command: false
+  name: ToggleCruiseControl
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: t
+      hotkey_codes:
+      - 20
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - connect trailer
+  - disconnect trailer
+  is_system_command: false
+  name: ConnectOrDisconnectTrailer
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: space
+      hotkey_codes:
+      - 57
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - parking brake on
+  - parking brake off
+  - toggle parking brake
+  is_system_command: false
+  name: ToggleParkingBrake
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: e
+      hotkey_codes:
+      - 18
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - start engine
+  - engine on
+  is_system_command: false
+  name: StartEngine
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: e
+      hotkey_codes:
+      - 18
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - engine off
+  is_system_command: false
+  name: TurnOffEngine
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: f5
+      hotkey_codes:
+      - 63
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - show the map
+  - show map
+  - activate navigation map
+  is_system_command: false
+  name: ShowNavigationMapPage
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: f7
+      hotkey_codes:
+      - 65
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - diagnostics
+  - truck info
+  is_system_command: false
+  name: ShowDiagnosticsTruckInfo
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: f3
+      hotkey_codes:
+      - 61
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation: []
+  is_system_command: false
+  name: SwitchRouteAdvisorModes
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: f12
+      hotkey_codes:
+      - 88
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - reset view
+  - recenter view
+  is_system_command: false
+  name: RecenterView
+  responses:
+  - view recentered
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: '['
+      hotkey_codes:
+      - 26
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - left signal on
+  - left signal off
+  - toggle left signal
+  - left blinker on
+  - right blinker off
+  is_system_command: false
+  name: ToggleLeftTurnSignal
+  responses:
+  - left signal command accepted
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: ']'
+      hotkey_codes:
+      - 27
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - right signal on
+  - right signal off
+  - right blinker on
+  - right blinker off
+  - toggle right blinker
+  is_system_command: false
+  name: ToggleRightTurnSignal
+  responses:
+  - right signal command accepted
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: enter
+      hotkey_codes:
+      - 28
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - press enter
+  - confirm dialog
+  is_system_command: false
+  name: ConfirmSelection
+  responses:
+  - got it
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: l
+      hotkey_codes:
+      - 38
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - headlights on
+  - headlights off
+  - torch on
+  - torch off
+  - change headlight mode
+  is_system_command: false
+  name: NextHeadlightsMode
+  responses:
+  - headlight mode changed
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: f2
+      hotkey_codes:
+      - 60
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - hide the mirrors
+  - change mirror mode
+  - toggle mirrors
+  is_system_command: false
+  name: ChangeMirrorsMode
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: f1
+      hotkey_codes:
+      - 59
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation: []
+  is_system_command: false
+  name: UseMouseControl
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: f6
+      hotkey_codes:
+      - 64
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation: []
+  is_system_command: false
+  name: ShowJobInfo
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: num0
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - next route advisor page
+  - change route advisor page
+  is_system_command: false
+  name: NextRouteAdvisorPage
+  responses:
+  - page switched.
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: y
+      hotkey_codes:
+      - 21
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - i want to chat
+  - show me the chat
+  - open the chat window
+  - close the chat window
+  - open chat window
+  - close chat window
+  is_system_command: false
+  name: OpenChatMode
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: f1
+      hotkey_codes:
+      - 59
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation: []
+  is_system_command: false
+  name: PauseGame
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: f9
+      hotkey_codes:
+      - 67
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - activate route advisor chat page
+  - show me the chat page
+  - show me the route advisor chat page
+  - display route advisor chat page
+  is_system_command: false
+  name: RouteAdvisorChatPage
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: esc
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - close chat mode
+  - exit chat mode
+  - close chat window
+  - close the chat
+  - close chat
+  is_system_command: false
+  name: CloseChatMode
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: esc
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - open the main menu
+  - open main menu
+  is_system_command: false
+  name: OpenMainMenu
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: esc
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - go back
+  - close menu
+  - close this menu
+  is_system_command: false
+  name: GoBackOrCloseMenu
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: f1
+      hotkey_codes:
+      - 59
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - unpause
+  is_system_command: false
+  name: UnpauseGame
+  responses: []
+- actions:
+  - keyboard:
+      hold: 10.0
+      hotkey: enter
+      hotkey_codes:
+      - 28
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - refuel
+  is_system_command: false
+  name: Refuel
+  responses:
+  - refueling now
+  - gassing up
+  - you got it
+  - filling your tank
+  - getting you full
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: enter
+      hotkey_codes:
+      - 28
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - press enter
+  is_system_command: false
+  name: PressEnter
+  responses:
+  - done
+description: ''
+disabled: false
+features:
+  stt_provider: whispercpp
+  use_generic_instant_responses: true
+is_voice_activation_default: true
+name: DashboardVoiceAssistant
+prompts:
+  backstory: "You are the AI assistant built into the dashboard of a big rig truck.\
+    \  You assist with performing vehicle functions efficiently and in a friendly\
+    \ manner.  Like a normal vehicle AI assistant you respond in a short, clear and\
+    \ concise manner to confirm the user's actions or request clarification if need,\
+    \ as you understand that the driver needs to focus their attention on the road\
+    \ at all times and distractions caused by long responses can cause accidents and\
+    \ grave injury. \n\nYou also have access to search the web using the web_search\
+    \ function to specifically search the Truck Simulator wiki for information about\
+    \ the game.  If the user asks information about the game itself, you should search\
+    \ the Truck Simulator wiki using the web_search skill before answering to ensure\
+    \ you have up to date information.  You should use the single site search to do\
+    \ so, and the format of the single site is: https://trucksimulator.wiki.gg/index.php?search=cities&title=Special%3ASearch&profile=advanced&fulltext=1&ns0=1.\
+    \  Example:\n(1) User request: \"What cities are in American Truck Simulator?\"\
+    \nResponse: -> You perform a single site search using the web_search skill, using\
+    \ this URL and answer using the provided contents:  https://trucksimulator.wiki.gg/index.php?search=cities+in+american+truck+simulator&title=Special%3ASearch&profile=advanced&fulltext=1&ns0=1.\n\
+    (2) User request: \"What companies are in Euro Truck Simulator?\"\nResponse: ->\
+    \ You perform a single site search using the web_search skill, using this URL\
+    \ and answer using the provided contents: ttps://trucksimulator.wiki.gg/index.php?search=companies+in+euro+truck+simulator&title=Special%3ASearch&profile=advanced&fulltext=1&ns0=1."
+record_key: \
+record_key_codes:
+- 43
+skills:
+- module: skills.web_search.main
+- custom_properties:
+  - id: display
+  - id: show_screenshots
+  module: skills.vision_ai.main
+- custom_properties:
+  - id: quick_commands_learning_rule_count
+  module: skills.quick_commands.main
+- module: skills.typing_assistant.main
+- custom_properties:
+  - id: use_metric_system
+  - id: ats_install_directory
+  - id: ets_install_directory
+  - id: dispatcher_backstory
+  module: skills.ats_telemetry.main
+- custom_properties:
+  - id: default_directory
+  - id: allow_overwrite_existing
+  module: skills.file_manager.main
+whispercpp:
+  autostart: true

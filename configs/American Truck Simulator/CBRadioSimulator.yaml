@@ -1,0 +1,94 @@
+azure:
+  tts:
+    voice: en-US-AndrewMultilingualNeural
+description: ''
+disabled: false
+is_voice_activation_default: false
+name: CBRadioSimulator
+prompts:
+  backstory: 'You are taking on the role of a CB Radio simulator for truck drivers.  Pretend
+    to be another trucker traveling the highways somewhere near the user, who is speaking
+    to you on their CB radio from inside their truck.  Really get into character as
+    a fellow truck driver, using all kinds of truck driver slang language (including
+    swearing or foul language if appropriate for the situation and your persona at
+    the time).  Before stating your location on the radio, use the get_game_state
+    telemetry function to find the user''s destination city and choose a nearby city
+    as your current location so the conversation is as realistic as possible.  Avoid
+    using "good buddy" in your responses as that may be offensive to some people.  '
+record_key: delete
+record_key_codes:
+- 83
+skills:
+- custom_properties:
+  - id: voice_changer_personalityprompt
+    value: 'Take on the personality of a random trucker, with a random name (should
+      be a name that would work for men or women) and callsign, talking on a CB radio
+      to another trucker in the United States.  If the user mentions a location, keep
+      in mind that you should be nearby if you''re talking on a CB radio because they
+      do not have a long distance range.  Before stating your location on the radio,
+      use the get_game_state telemetry function to find the user''s destination city
+      and choose a nearby city as your current location so the conversation is as
+      realistic as possible.  Avoid using "good buddy" in your responses as that may
+      be offensive to some people.  '
+  - id: voice_changer_voices
+    value: wingman_pro.azure.en-US-JennyMultilingualNeural, wingman_pro.azure.en-US-RyanMultilingualNeural,
+      wingman_pro.azure.en-US-AndrewMultilingualNeural, wingman_pro.azure.en-US-AvaMultilingualNeural,
+      wingman_pro.azure.en-US-BrianMultilingualNeural, wingman_pro.azure.en-US-EmmaMultilingualNeural,
+      wingman_pro.azure.en-AU-NatashaNeural, wingman_pro.azure.en-AU-DuncanNeural,
+      wingman_pro.azure.en-CA-LiamNeural, wingman_pro.azure.en-GB-RyanNeural, wingman_pro.azure.en-GB-MiaNeural,
+      wingman_pro.azure.en-IE-ConnorNeural, wingman_pro.azure.en-IN-NeerjaNeural,
+      wingman_pro.azure.en-KE-ChilembaNeural, wingman_pro.azure.en-NG-EzinneNeural,
+      wingman_pro.azure.en-NG-AbeoNeural, wingman_pro.azure.en-NZ-MitchellNeural,
+      wingman_pro.azure.en-PH-RosaNeural, wingman_pro.azure.en-SG-LunaNeural, wingman_pro.azure.en-TZ-ImaniNeural,
+      wingman_pro.azure.en-TZ-ElimuNeural, wingman_pro.azure.en-US-AvaNeural, wingman_pro.azure.en-US-GuyNeural,
+      wingman_pro.azure.en-ZA-LeahNeural, wingman_pro.azure.en-ZA-LukeNeural, wingman_pro.azure.en-GB-AdaMultilingualNeural
+  - id: voice_changer_interval
+    value: 90
+  - id: voice_changer_clearhistory
+  module: skills.voice_changer.main
+- custom_properties:
+  - id: prompt
+    value: Generate a dialog between random truckers driving big rig trucks across
+      the United States, talking on their CB Radios.  Remember this is a CB Radio
+      interaction, so if one trucker mentions a location, the other truckers talking
+      to them and hearing them should naturally be located somewhere nearby to mimic
+      the realistic range of a CB Radio.
+  - id: voices
+    value: wingman_pro.azure.en-US-JennyMultilingualNeural, wingman_pro.azure.en-US-RyanMultilingualNeural,
+      wingman_pro.azure.en-US-AndrewMultilingualNeural, wingman_pro.azure.en-US-AvaMultilingualNeural,
+      wingman_pro.azure.en-US-BrianMultilingualNeural, wingman_pro.azure.en-US-EmmaMultilingualNeural,
+      wingman_pro.azure.en-AU-NatashaNeural, wingman_pro.azure.en-AU-DuncanNeural,
+      wingman_pro.azure.en-CA-LiamNeural, wingman_pro.azure.en-GB-RyanNeural, wingman_pro.azure.en-GB-MiaNeural,
+      wingman_pro.azure.en-IE-ConnorNeural, wingman_pro.azure.en-IN-NeerjaNeural,
+      wingman_pro.azure.en-KE-ChilembaNeural, wingman_pro.azure.en-NG-EzinneNeural,
+      wingman_pro.azure.en-NG-AbeoNeural, wingman_pro.azure.en-NZ-MitchellNeural,
+      wingman_pro.azure.en-PH-RosaNeural, wingman_pro.azure.en-SG-LunaNeural, wingman_pro.azure.en-TZ-ImaniNeural,
+      wingman_pro.azure.en-TZ-ElimuNeural, wingman_pro.azure.en-US-AvaNeural, wingman_pro.azure.en-US-GuyNeural,
+      wingman_pro.azure.en-ZA-LeahNeural, wingman_pro.azure.en-ZA-LukeNeural, wingman_pro.azure.en-GB-AdaMultilingualNeural
+  - id: interval_min
+    value: 60
+  - id: interval_max
+  - id: messages_min
+  - id: messages_max
+    value: 6
+  - id: participants_min
+  - id: participants_max
+    value: 3
+  - id: force_radio_sound
+  - id: auto_start
+    value: 1
+  module: skills.radio_chatter.main
+- custom_properties:
+  - id: dispatcher_backstory
+  - id: ats_install_directory
+  - id: ets_install_directory
+  - id: use_metric_system
+  module: skills.ats_telemetry.main
+sound:
+  effects:
+  - LOW_QUALITY_RADIO
+  play_beep: true
+whispercpp:
+  autostart: true
+xvasynth:
+  xvasynth_path: D:\DExtraSteamGames\steamapps\common\xVASynth
