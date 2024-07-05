@@ -67,7 +67,7 @@ Nothing really, I think WingmanAI is just a super fun project and want to help p
 
 ## How Do I Support You If I Like This Alot?
 
-I don't need anything! If you have a few bucks, use it to keep up a Wingman Pro sub, and toss them to the devs of the NMSAssistant API: https://buymeacoffee.com/kurt?ref=assistantNMS.  They are the real geniuses!
+I don't need anything! If you have a few bucks, use it to keep up a Wingman Pro sub, or buy another DLC :)!
 
 ## I'm Having a Problem With Using This
 
