@@ -12,6 +12,8 @@ Basically, it allows you to speak with three different generative artificial int
 
 (3) Dispatcher.  Will have information about your truck and route.  If you say “start dispatch mode” it will check game data every ten seconds and comment on key changes, such as your new job, finished job, refueling, a fine or cargo damage.
 
+Video here: https://www.reddit.com/r/trucksim/comments/1dr7u6e/maximum_roleplay_mode_activated/
+
 ## Quick Start
 
 1. Download **WingmanAI**: https://www.wingman-ai.com/
