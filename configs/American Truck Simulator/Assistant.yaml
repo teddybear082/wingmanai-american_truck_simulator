@@ -474,13 +474,151 @@ commands:
   name: PressEnter
   responses:
   - done
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: f5
+      hotkey_codes:
+      - 63
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - zoom out the map
+  - change the map zoom level
+  - change map zoom
+  - toggle map zoom
+  name: ChangeMapZoomLevel
+  responses:
+  - changing map zoom level
+  - got it
+  - adjusting map mode
+  - toggling map display
+- actions:
+  - keyboard:
+      hold: 6.0
+      hotkey: x
+      hotkey_codes:
+      - 45
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - press the push to talk button
+  - push to talk
+  - activate push to talk
+  - activate ptt
+  name: PushToTalk
+  responses:
+  - ptt ended
+  - push to talk ended
+- actions:
+  - keyboard:
+      hold: 1.0
+      hotkey: n
+      hotkey_codes:
+      - 49
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - blow the air horn
+  - sound the air horn
+  - activate the air horn
+  - blow the horn
+  name: ActivateAirHorn
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: f4
+      hotkey_codes:
+      - 62
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - adjust my truck seat
+  - truck adjustment menu
+  - truck adjust menu
+  name: AdjustTruckSeat
+  responses: []
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: '9'
+      hotkey_codes:
+      - 10
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - next camera
+  name: NextCamera
+  responses:
+  - got it
+  - next camera selected
+  - camera mode toggled
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: '1'
+      hotkey_codes:
+      - 2
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - interior camera
+  - inside camera
+  name: InteriorCameraMode
+  responses:
+  - interior camera mode displayed
+  - inside camera mode activated
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: '2'
+      hotkey_codes:
+      - 3
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - chasing camera mode
+  name: ChasingCamera
+  responses:
+  - chasing camera mode activated
+  - chasing camera mode on
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: '8'
+      hotkey_codes:
+      - 9
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - activate drive by camera
+  - turn on drive by camera
+  - switch to drive by camera
+  name: DriveByCamera
+  responses:
+  - drive by camera mode activated
+  - activated drive by cam
+  - switched camera mode to drive by
+- actions:
+  - keyboard:
+      hold: 0.3
+      hotkey: q
+      hotkey_codes:
+      - 16
+      hotkey_extended: false
+  force_instant_activation: false
+  instant_activation:
+  - quick replies
+  name: ToggleQuickRepliesMenu
+  responses:
+  - quick replies menu toggled
 description: ''
 disabled: false
 features:
-  stt_provider: whispercpp
   use_generic_instant_responses: true
 is_voice_activation_default: true
-name: DashboardVoiceAssistant
+name: Assistant
 prompts:
   backstory: "You are the AI assistant built into the dashboard of a big rig truck.\
     \  You assist with performing vehicle functions efficiently and in a friendly\
@@ -499,29 +637,119 @@ prompts:
     \ this URL and answer using the provided contents:  https://trucksimulator.wiki.gg/index.php?search=cities+in+american+truck+simulator&title=Special%3ASearch&profile=advanced&fulltext=1&ns0=1.\n\
     (2) User request: \"What companies are in Euro Truck Simulator?\"\nResponse: ->\
     \ You perform a single site search using the web_search skill, using this URL\
-    \ and answer using the provided contents: ttps://trucksimulator.wiki.gg/index.php?search=companies+in+euro+truck+simulator&title=Special%3ASearch&profile=advanced&fulltext=1&ns0=1."
+    \ and answer using the provided contents: ttps://trucksimulator.wiki.gg/index.php?search=companies+in+euro+truck+simulator&title=Special%3ASearch&profile=advanced&fulltext=1&ns0=1.\n\
+    \nImportant style notes: (1) remember you are speaking to the driver, so use plain\
+    \ declarative sentences not emojis or lists since those cannot be easily verbalized:\
+    \ (2) if the driver wants something done, just do it, assume that the driver is\
+    \ correct in their request and that the last information you had may have changed;\
+    \ (3) always prefer getting fresh data rather than relying on old data if the\
+    \ driver requests information about the truck, route, time or similar things;\
+    \ and (4) remember you can chain commands together  -- for instance, if the driver\
+    \ asks what time they will get to a certain destination remember you can first\
+    \ get the current gameTime, then use routeTime to get the estimated amount of\
+    \ time to complete the route, and then add that time to the gameTime to get an\
+    \ estimate of the time when the user will arrive -- that's just an example, use\
+    \ this ability whenever you need in order to accomplish the driver's goal."
 record_key: \
 record_key_codes:
 - 43
 skills:
-- module: skills.web_search.main
+- examples:
+  - answer:
+      de: Ich habe folgende Neuigkeiten zu Star Citizen gefunden...
+      en: I found the following news about Star Citizen...
+    question:
+      de: Suche im Internet nach aktuellen Neuigkeiten zu Star Citizen und fasse sie
+        zusammen.
+      en: Search the internet for recent news about Star Citizen and give me the highlights.
+  module: skills.web_search.main
 - custom_properties:
   - id: display
   - id: show_screenshots
+  examples:
+  - answer:
+      de: Ich sehe die Spotify-App, die Musik abspielt.
+      en: I see Spotify running and playing music.
+    question:
+      de: Was siehst du auf meinem Bildschirm?
+      en: What is on my screen?
   module: skills.vision_ai.main
 - custom_properties:
   - id: quick_commands_learning_rule_count
   module: skills.quick_commands.main
-- module: skills.typing_assistant.main
+- examples:
+  - answer:
+      de: (Tippt "Wie geht's dir heute?" im aktiven Fenster an der aktuellen Cursor-Position
+        ein)
+      en: (types "How are you today?" in active window at the current cursor location)
+    question:
+      de: Tippe "Wie geht's dir heute?".
+      en: Type "How are you today?".
+  - answer:
+      de: "(Erfindet ein Gedicht \xFCber B\xE4ume und tippt es dann in das aktive\
+        \ Fenster)"
+      en: (imagines a poem about trees and then types it in the active window)
+    question:
+      de: "Schreibe ein Gedicht \xFCber B\xE4ume."
+      en: Type a poem about trees.
+  module: skills.typing_assistant.main
 - custom_properties:
   - id: use_metric_system
   - id: ats_install_directory
   - id: ets_install_directory
   - id: dispatcher_backstory
+  - id: autostart_dispatch_mode
+  examples:
+  - answer:
+      de: "(gibt die aktuelle Geschwindigkeit zur\xFCck)"
+      en: (returns the current speed)
+    question:
+      de: Was ist meine aktuelle Geschwindigkeit?
+      en: What is my current speed?
+  - answer:
+      de: (aktiviert / deaktiviert den Versandmodus)
+      en: (activates / deactivates dispatch mode)
+    question:
+      de: Aktiviere den Versandmodus / Beende den Versandmodus.
+      en: Activate the dispatch mode / Stop dispatch mode.
   module: skills.ats_telemetry.main
 - custom_properties:
   - id: default_directory
   - id: allow_overwrite_existing
+  examples:
+  - answer:
+      de: (speichert 'Hallo, Welt!' in hello.txt im Standardverzeichnis)
+      en: (saves 'Hello, World!' to hello.txt in the default directory)
+    question:
+      de: Speichere 'Hallo, Welt!' in hello.txt.
+      en: Save 'Hello, World!' to hello.txt.
+  - answer:
+      de: "(l\xE4dt den Inhalt von notes.md und liest ihn vor)"
+      en: (loads the content of notes.md and reads it out loud)
+    question:
+      de: Lade den Inhalt aus notes.md.
+      en: Load the content from notes.md.
+  - answer:
+      de: (erstellt ein Verzeichnis namens 'Projekte' im Standardverzeichnis)
+      en: (creates a directory named 'Projects' in the default directory)
+    question:
+      de: Erstelle ein Verzeichnis namens 'Projekte'.
+      en: Create a directory named 'Projects'.
   module: skills.file_manager.main
-whispercpp:
-  autostart: true
+- custom_properties:
+  - id: display
+  - id: default_directory
+  examples:
+  - answer:
+      de: (Macht einen Screenshot des fokussierten Fensters)
+      en: (Takes a screenshot of the focused window)
+    question:
+      de: Mach einen Screenshot
+      en: Take a screenshot
+  - answer:
+      de: (Macht einen Screenshot des fokussierten Fensters)
+      en: (Takes a screenshot of the focused window)
+    question:
+      de: "Oh wow das ist verr\xFCckt!"
+      en: Oh wow this is crazy!
+  module: skills.auto_screenshot.main

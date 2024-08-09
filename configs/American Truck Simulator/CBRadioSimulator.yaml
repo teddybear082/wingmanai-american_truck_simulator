@@ -6,45 +6,196 @@ disabled: false
 is_voice_activation_default: false
 name: CBRadioSimulator
 prompts:
-  backstory: 'You are taking on the role of a CB Radio simulator for truck drivers.  Pretend
+  backstory: You are taking on the role of a CB Radio simulator for truck drivers.  Pretend
     to be another trucker traveling the highways somewhere near the user, who is speaking
     to you on their CB radio from inside their truck.  Really get into character as
     a fellow truck driver, using all kinds of truck driver slang language (including
     swearing or foul language if appropriate for the situation and your persona at
     the time).  Before stating your location on the radio, use the get_game_state
-    telemetry function to find the user''s destination city and choose a nearby city
+    telemetry function to find the user's destination city and choose a nearby city
     as your current location so the conversation is as realistic as possible.  Avoid
-    using "good buddy" in your responses as that may be offensive to some people.  '
+    using "good buddy" in your responses as that may be offensive to some people.  In
+    addition, when speaking on the radio, ensure that you use "ten four" instead of
+    "10-4" and use "breaker breaker one nine" instead of "breaker breaker 19" or "breaker
+    breaker 1-9".
 record_key: delete
 record_key_codes:
 - 83
 skills:
 - custom_properties:
-  - id: voice_changer_personalityprompt
-    value: 'Take on the personality of a random trucker, with a random name (should
-      be a name that would work for men or women) and callsign, talking on a CB radio
-      to another trucker in the United States.  If the user mentions a location, keep
-      in mind that you should be nearby if you''re talking on a CB radio because they
-      do not have a long distance range.  Before stating your location on the radio,
-      use the get_game_state telemetry function to find the user''s destination city
-      and choose a nearby city as your current location so the conversation is as
-      realistic as possible.  Avoid using "good buddy" in your responses as that may
-      be offensive to some people.  '
-  - id: voice_changer_voices
-    value: wingman_pro.azure.en-US-JennyMultilingualNeural, wingman_pro.azure.en-US-RyanMultilingualNeural,
-      wingman_pro.azure.en-US-AndrewMultilingualNeural, wingman_pro.azure.en-US-AvaMultilingualNeural,
-      wingman_pro.azure.en-US-BrianMultilingualNeural, wingman_pro.azure.en-US-EmmaMultilingualNeural,
-      wingman_pro.azure.en-AU-NatashaNeural, wingman_pro.azure.en-AU-DuncanNeural,
-      wingman_pro.azure.en-CA-LiamNeural, wingman_pro.azure.en-GB-RyanNeural, wingman_pro.azure.en-GB-MiaNeural,
-      wingman_pro.azure.en-IE-ConnorNeural, wingman_pro.azure.en-IN-NeerjaNeural,
-      wingman_pro.azure.en-KE-ChilembaNeural, wingman_pro.azure.en-NG-EzinneNeural,
-      wingman_pro.azure.en-NG-AbeoNeural, wingman_pro.azure.en-NZ-MitchellNeural,
-      wingman_pro.azure.en-PH-RosaNeural, wingman_pro.azure.en-SG-LunaNeural, wingman_pro.azure.en-TZ-ImaniNeural,
-      wingman_pro.azure.en-TZ-ElimuNeural, wingman_pro.azure.en-US-AvaNeural, wingman_pro.azure.en-US-GuyNeural,
-      wingman_pro.azure.en-ZA-LeahNeural, wingman_pro.azure.en-ZA-LukeNeural, wingman_pro.azure.en-GB-AdaMultilingualNeural
+  - id: use_metric_system
+  - id: ats_install_directory
+  - id: ets_install_directory
+  - id: dispatcher_backstory
+  - id: autostart_dispatch_mode
+  examples:
+  - answer:
+      de: "(gibt die aktuelle Geschwindigkeit zur\xFCck)"
+      en: (returns the current speed)
+    question:
+      de: Was ist meine aktuelle Geschwindigkeit?
+      en: What is my current speed?
+  - answer:
+      de: (aktiviert / deaktiviert den Versandmodus)
+      en: (activates / deactivates dispatch mode)
+    question:
+      de: Aktiviere den Versandmodus / Beende den Versandmodus.
+      en: Activate the dispatch mode / Stop dispatch mode.
+  module: skills.ats_telemetry.main
+- custom_properties:
   - id: voice_changer_interval
-    value: 90
+    value: 120
   - id: voice_changer_clearhistory
+  - id: voice_changer_voices
+    options:
+    - label: multiple
+      value: 1
+    value:
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-AvaMultilingualNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-AndrewMultilingualNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-EmmaMultilingualNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-BrianMultilingualNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-AvaNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-AndrewNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-EmmaNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-BrianNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-JennyNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-GuyNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-AriaNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-DavisNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-JaneNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-JasonNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-SaraNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-TonyNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-NancyNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-AmberNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-AnaNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-AshleyNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-BrandonNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-ChristopherNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-CoraNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-ElizabethNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-EricNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-JacobNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-JennyMultilingualNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-MichelleNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-MonicaNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-RogerNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-RyanMultilingualNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-SteffanNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-AlloyMultilingualNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-EchoMultilingualNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-FableMultilingualNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-NovaMultilingualNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-OnyxMultilingualNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-ShimmerMultilingualNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-AlloyMultilingualNeuralHD
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-EchoMultilingualNeuralHD
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-FableMultilingualNeuralHD
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-NovaMultilingualNeuralHD
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-OnyxMultilingualNeuralHD
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-ShimmerMultilingualNeuralHD
+  - id: voice_changer_personalityprompt
+    value: Take on the personality of a random trucker, with a random gender netural
+      name (should be a name that would work for men or women) and creative and unique
+      callsign, talking on a CB radio to another trucker in the United States.  If
+      the user mentions a location, keep in mind that you should be nearby if you're
+      talking on a CB radio because they do not have a long distance range.  Before
+      stating your location on the radio, use the get_game_state telemetry function
+      to find the user's destination city and choose a nearby city as your current
+      location so the conversation is as realistic as possible.  Avoid using "good
+      buddy" in your responses as that may be offensive to some people.  In addition,
+      when speaking on the radio, ensure that you use "ten four" instead of "10-4"
+      and use "breaker breaker one nine" instead of "breaker breaker 19" or "breaker
+      breaker 1-9"
   module: skills.voice_changer.main
 - custom_properties:
   - id: prompt
@@ -52,43 +203,189 @@ skills:
       the United States, talking on their CB Radios.  Remember this is a CB Radio
       interaction, so if one trucker mentions a location, the other truckers talking
       to them and hearing them should naturally be located somewhere nearby to mimic
-      the realistic range of a CB Radio.
+      the realistic range of a CB Radio.  Avoid using "good buddy" in the dialog as
+      that may be offensive to some people.  In addition, ensure the dialog uses "ten
+      four" instead of "10-4" and uses "breaker breaker one nine" instead of "breaker
+      breaker 19" or "breaker breaker 1-9".  The names of the random truckers should
+      be gender neutral and not rely on being male or female names.  Trucker call
+      signs should be extremely varied and creative.
   - id: voices
-    value: wingman_pro.azure.en-US-JennyMultilingualNeural, wingman_pro.azure.en-US-RyanMultilingualNeural,
-      wingman_pro.azure.en-US-AndrewMultilingualNeural, wingman_pro.azure.en-US-AvaMultilingualNeural,
-      wingman_pro.azure.en-US-BrianMultilingualNeural, wingman_pro.azure.en-US-EmmaMultilingualNeural,
-      wingman_pro.azure.en-AU-NatashaNeural, wingman_pro.azure.en-AU-DuncanNeural,
-      wingman_pro.azure.en-CA-LiamNeural, wingman_pro.azure.en-GB-RyanNeural, wingman_pro.azure.en-GB-MiaNeural,
-      wingman_pro.azure.en-IE-ConnorNeural, wingman_pro.azure.en-IN-NeerjaNeural,
-      wingman_pro.azure.en-KE-ChilembaNeural, wingman_pro.azure.en-NG-EzinneNeural,
-      wingman_pro.azure.en-NG-AbeoNeural, wingman_pro.azure.en-NZ-MitchellNeural,
-      wingman_pro.azure.en-PH-RosaNeural, wingman_pro.azure.en-SG-LunaNeural, wingman_pro.azure.en-TZ-ImaniNeural,
-      wingman_pro.azure.en-TZ-ElimuNeural, wingman_pro.azure.en-US-AvaNeural, wingman_pro.azure.en-US-GuyNeural,
-      wingman_pro.azure.en-ZA-LeahNeural, wingman_pro.azure.en-ZA-LukeNeural, wingman_pro.azure.en-GB-AdaMultilingualNeural
+    options:
+    - label: multiple
+      value: 1
+    value:
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-AvaMultilingualNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-AndrewMultilingualNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-EmmaMultilingualNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-BrianMultilingualNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-AvaNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-AndrewNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-EmmaNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-BrianNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-JennyNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-GuyNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-AriaNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-DavisNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-JaneNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-JasonNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-SaraNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-TonyNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-NancyNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-AmberNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-AnaNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-AshleyNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-BrandonNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-ChristopherNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-CoraNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-ElizabethNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-EricNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-JacobNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-JennyMultilingualNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-MichelleNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-MonicaNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-RogerNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-RyanMultilingualNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-SteffanNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-AlloyMultilingualNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-EchoMultilingualNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-FableMultilingualNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-NovaMultilingualNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-OnyxMultilingualNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-ShimmerMultilingualNeural
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-AlloyMultilingualNeuralHD
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-EchoMultilingualNeuralHD
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-FableMultilingualNeuralHD
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-NovaMultilingualNeuralHD
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-OnyxMultilingualNeuralHD
+    - provider: wingman_pro
+      subprovider: azure
+      voice: en-US-ShimmerMultilingualNeuralHD
   - id: interval_min
-    value: 60
   - id: interval_max
+    value: 240
   - id: messages_min
   - id: messages_max
-    value: 6
   - id: participants_min
   - id: participants_max
-    value: 3
+    value: 2
   - id: force_radio_sound
+  - id: radio_sounds
+    value: low
   - id: auto_start
     value: 1
+  - id: volume
+    options:
+    - label: min
+      value: 0
+    - label: max
+      value: 1
+    - label: step
+      value: 0.1
+    value: 0.8
+  - id: print_chatter
+  - id: radio_knowledge
+  - id: use_beeps
+  examples:
+  - answer:
+      de: "Das Funkger\xE4t ist derzeit ausgeschaltet."
+      en: The radio is currently turned off.
+    question:
+      de: "Was ist der Status des Funkger\xE4ts?"
+      en: What is the status of the radio?
+  - answer:
+      de: "Das Funkger\xE4t wurde eingeschaltet."
+      en: The radio is now turned on.
+    question:
+      de: "Bitte schalte das Funkger\xE4t ein."
+      en: Please turn the radio on.
   module: skills.radio_chatter.main
-- custom_properties:
-  - id: dispatcher_backstory
-  - id: ats_install_directory
-  - id: ets_install_directory
-  - id: use_metric_system
-  module: skills.ats_telemetry.main
 sound:
   effects:
   - LOW_QUALITY_RADIO
   play_beep: true
-whispercpp:
-  autostart: true
-xvasynth:
-  xvasynth_path: D:\DExtraSteamGames\steamapps\common\xVASynth
